@@ -19,9 +19,8 @@ export class Rates{
   }
 }
 
-export function mult(response, userInputNum, userInputCur) {
-  let output = `${response}.conversion_rates.${userInputCur} * ${userInputNum}`;
-  console.log("wut");
+export function mult(response, userInputNum, userInputCurMult) {
+  let output = userInputNum * userInputCurMult;
   return output;
 }
 
