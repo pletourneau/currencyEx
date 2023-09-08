@@ -7,6 +7,7 @@ export class Rates{
       request.addEventListener("loadend", function() {
         const response = JSON.parse(this.responseText);
         if (this.status === 200) {
+          console.log(this.status);
           resolve([response]);
         } else {
           reject([this]);
@@ -18,10 +19,8 @@ export class Rates{
   }
 }
 
-export function mult(apiResponse, userInputNum, userInputCur) {
-  console.log(userInputNum);
-  console.log(userInputCur);
-  let output = `${apiResponse}.conversion_rates.${userInputCur} * ${userInputNum}`;
+export function mult(response, userInputNum, userInputCur) {
+  let output = `${response}.conversion_rates.${userInputCur} * ${userInputNum}`;
   console.log("wut");
   return output;
 }

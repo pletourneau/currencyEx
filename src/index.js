@@ -4,8 +4,8 @@ import './css/styles.css';
 import { Rates, mult } from './js/apiLogic.js';
 
 
-function showRate(apiResponse, userInputNum, userInputCur) {
-  let res = mult(apiResponse, userInputNum, userInputCur);
+function showRate(response, userInputNum, userInputCur) {
+  let res = mult(response, userInputNum, userInputCur);
   document.getElementById("showResults").innerText = res;
 }
 function showError(request) {
@@ -18,12 +18,13 @@ function handleFormSubmission(event) {
   // document.getElementById("amount").value = null;
   // document.getElementById("currencyNew").value = null;
   let promise = Rates.getRates();
-  promise.then(function (apiResponse) {
+  promise.then(function (response) {
     const userInputNum = parseFloat(document.getElementById("amount").value);
-    const userInputCur = document.getElementById("currencyNew").value;
-    console.log(typeof(userInputNum));
+    const userInputCur = document.getElementById("currencyNew").value.toUpperCase();
+    const userInputCurMult = `response[0].conversion_rates.${userInputCur}`;
     console.log(userInputCur);
-    showRate(apiResponse, userInputNum, userInputCur);
+    console.log(response[0].conversion_rates.userInputCur);
+    showRate(response, userInputNum, userInputCurMult);
   }, function (errorMessage) {
     showError(errorMessage);
   });
