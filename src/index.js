@@ -11,7 +11,7 @@ function showRate(userInputNum, userInputCurMult, userInputCur) {
   document.getElementById("showCountryCode").innerText = userInputCur;
 }
 function showError(request) {
-  document.getElementById("showResults").innerText = `There is an error accessing the bike ${request[0].status}`;
+  document.getElementById("showResults").innerText = `There was an error ${request[0].status}`;
 }
 
 
