@@ -5,7 +5,7 @@ import { Rates, mult } from './js/apiLogic.js';
 
 
 function showRate(apiResponse, userInputNum, userInputCur) {
-  let res = mult(apiResponse, userInputNum, userInputCur)
+  let res = mult(apiResponse, userInputNum, userInputCur);
   document.getElementById("showResults").innerText = res;
 }
 function showError(request) {
@@ -15,13 +15,15 @@ function showError(request) {
 
 function handleFormSubmission(event) {
   event.preventDefault();
-  // const userInputNum = document.getElementById("amount").value;
-  // const userInputCur = document.getElementById("currencyNew").value;
-  document.getElementById("amount").value = null;
-  document.getElementById("currencyNew").value = null;
+  // document.getElementById("amount").value = null;
+  // document.getElementById("currencyNew").value = null;
   let promise = Rates.getRates();
-  promise.then(function (response) {
-    showRate(response);
+  promise.then(function (apiResponse) {
+    const userInputNum = parseFloat(document.getElementById("amount").value);
+    const userInputCur = document.getElementById("currencyNew").value;
+    console.log(typeof(userInputNum));
+    console.log(userInputCur);
+    showRate(apiResponse, userInputNum, userInputCur);
   }, function (errorMessage) {
     showError(errorMessage);
   });

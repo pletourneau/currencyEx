@@ -18,10 +18,8 @@ export class Rates{
   }
 }
 
-export function mult(apiResponsem, userInputNum, userInputCur) {
-  let userInputNum;
+export function mult(apiResponse, userInputNum, userInputCur) {
   console.log(userInputNum);
-  let userInputCur = "".toUpperCase();
   console.log(userInputCur);
   let output = `${apiResponse}.conversion_rates.${userInputCur} * ${userInputNum}`;
   console.log("wut");
