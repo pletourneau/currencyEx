@@ -11,17 +11,20 @@ export class Rates{
         } else {
           reject([this]);
         }
-    });
-    request.open("GET", url, true);
-    request.send();
+      });
+      request.open("GET", url, true);
+      request.send();
     });
   }
 }
 
-export function mult(apiResponse) {
+export function mult(apiResponsem, userInputNum, userInputCur) {
   let userInputNum;
+  console.log(userInputNum);
   let userInputCur = "".toUpperCase();
-  let output = "`${apiResponse}.conversion_rates.${userInputCur} * ${userInputNum}`";
+  console.log(userInputCur);
+  let output = `${apiResponse}.conversion_rates.${userInputCur} * ${userInputNum}`;
+  console.log("wut");
   return output;
 }
 
