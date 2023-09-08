@@ -19,7 +19,7 @@ export class Rates{
 }
 
 export function mult(userInputNum, userInputCurMult) {
-  const output = userInputNum * userInputCurMult;
+  const output = (userInputNum * userInputCurMult).toFixed(2);
   return output;
 }
 
