@@ -22,7 +22,11 @@ function handleFormSubmission(event) {
     const userInputNum = parseFloat(document.getElementById("amount").value);
     const userInputCur = document.getElementById("currencyNew").value.toUpperCase();
     const userInputCurMult = response[0].conversion_rates[userInputCur];
-    showRate(userInputNum, userInputCurMult);
+    if (userInputCurMult === undefined || userInputCurMult === isNaN) {
+      document.getElementById("showResults").innerText = "invalid currency code, please try again";
+    } else {
+      showRate(userInputNum, userInputCurMult);
+    }
   }, function (errorMessage) {
     showError(errorMessage);
   });
