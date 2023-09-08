@@ -6,6 +6,7 @@ import { Rates, mult } from './js/apiLogic.js';
 
 function showRate(userInputNum, userInputCurMult) {
   let res = mult(userInputNum, userInputCurMult);
+  document.getElementById("form1").reset();
   document.getElementById("showResults").innerText = res;
 }
 function showError(request) {
@@ -15,8 +16,6 @@ function showError(request) {
 
 function handleFormSubmission(event) {
   event.preventDefault();
-  // document.getElementById("amount").value = null;
-  // document.getElementById("currencyNew").value = null;
   let promise = Rates.getRates();
   promise.then(function (response) {
     const userInputNum = parseFloat(document.getElementById("amount").value);
@@ -24,6 +23,7 @@ function handleFormSubmission(event) {
     const userInputCurMult = response[0].conversion_rates[userInputCur];
     if (userInputCurMult === undefined || userInputCurMult === isNaN) {
       document.getElementById("showResults").innerText = "invalid currency code, please try again";
+      document.getElementById("form1").reset();
     } else {
       showRate(userInputNum, userInputCurMult);
     }
