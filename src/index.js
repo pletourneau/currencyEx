@@ -9,7 +9,6 @@ function showRate(userInputNum, userInputCurMult, userInputCur) {
   document.getElementById("form1").reset();
   document.getElementById("showResults").innerText = res;
   document.getElementById("showCountryCode").innerText = userInputCur;
-  console.log(userInputCur);
 }
 function showError(request) {
   document.getElementById("showResults").innerText = `There is an error accessing the bike ${request[0].status}`;
