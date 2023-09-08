@@ -7,7 +7,6 @@ export class Rates{
       request.addEventListener("loadend", function() {
         const response = JSON.parse(this.responseText);
         if (this.status === 200) {
-          console.log(this.status);
           resolve([response]);
         } else {
           reject([this]);
@@ -19,8 +18,8 @@ export class Rates{
   }
 }
 
-export function mult(response, userInputNum, userInputCurMult) {
-  let output = userInputNum * userInputCurMult;
+export function mult(userInputNum, userInputCurMult) {
+  const output = userInputNum * userInputCurMult;
   return output;
 }
 
