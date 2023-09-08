@@ -21,8 +21,8 @@ _{With the input of an amount in USD and a second input of another currency, the
 
 * _Clone the repository from this GitHub link, https://github.com/pletourneau/currencyEx_
 * _Open root directory in code editor_
-* _In the root directory add a file named ".env"_
-* _In the root directory add a file named ".gitignore"_
+* _In the root directory of the project add a file named ".env"_
+* _In the root directory of the project add a file named ".gitignore"_
 * _In a web browser, preferably Chrome, navigate to https://app.exchangerate-api.com/sign-up and create a "Free" account_
 * _After account is created, navigate to https://app.exchangerate-api.com/keys and copy your active API key_
 * _Return to your code editor. Open ".env" file_
