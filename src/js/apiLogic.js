@@ -16,11 +16,13 @@ export class Rates{
     request.send();
     });
   }
+}
 
-  export function mult(){
-    let output = ;
-
-  }
+export function mult(apiResponse) {
+  let userInputNum;
+  let userInputCur = "".toUpperCase();
+  let output = "`${apiResponse}.conversion_rates.${userInputCur} * ${userInputNum}`";
+  return output;
 }
 
 
