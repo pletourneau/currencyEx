@@ -21,9 +21,9 @@ function handleFormSubmission(event) {
   promise.then(function (response) {
     const userInputNum = parseFloat(document.getElementById("amount").value);
     const userInputCur = document.getElementById("currencyNew").value.toUpperCase();
-    const userInputCurMult = `response[0].conversion_rates.${userInputCur}`;
+    const userInputCurMult = response[0].conversion_rates[userInputCur];
     console.log(userInputCur);
-    console.log(response[0].conversion_rates.userInputCur);
+    console.log(userInputCurMult);
     showRate(response, userInputNum, userInputCurMult);
   }, function (errorMessage) {
     showError(errorMessage);
